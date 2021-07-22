@@ -920,7 +920,7 @@
         margin-bottom: 20px; } }
 
 .clients {
-position:relative;
+position:absolute;
   left:150px;
   border: 2px solid yellow;
 }
