@@ -1,10 +1,9 @@
-/*
- * Author by FreeHTML5.co
- * Twitter: https://twitter.com/fh5co
- * Facebook: https://fb.com/fh5co
- * URL: https://freehtml5.co
- */
-/* Fonts */
+
+.logox {
+    color: Gold;
+    font-size: 40px;
+    
+ {
 @font-face {
   font-family: 'Calisto-MT';
   src: url(../fonts/Calisto-MT.ttf); }
