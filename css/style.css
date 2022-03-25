@@ -1,3 +1,7 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 .logox {
     color: rgb(216, 184, 0);
     font-size: 40px;
