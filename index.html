@@ -7,6 +7,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/modern.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Karma&display=swap"
@@ -35,14 +36,19 @@
     <title>TbeeTech</title>
   </head>
   <body>
+    <div id="particles-js"></div>
     <nav class="site-navigation">
       <div class="site-navigation-inner site-container">
-        <h1 class="logox">TBEETECH</14>
+        <div class="logo-container">
+          <h1 class="logox">TBEETECH</h1>
+          <div class="logo-highlight"></div>
+        </div>
         <div class="main-navigation">
           <ul class="main-navigation__ul">
-            <li id="home"><a href="#goBackHome">home</a></li>
-            <li id="contact"><a href="#contactDetails">contact</a></li>
-            <li id="about"><a href="#aboutDetails">about</a></li>
+            <li id="home"><a href="#goBackHome"><i class="fas fa-home"></i> Home</a></li>
+            <li id="projects"><a href="#project-showcase"><i class="fas fa-laptop-code"></i> Projects</a></li>
+            <li id="about"><a href="#aboutDetails"><i class="fas fa-user"></i> About</a></li>
+            <li id="contact"><a href="#contactDetails"><i class="fas fa-envelope"></i> Contact</a></li>
           </ul>
         </div>
         <div id="myBtn" class="burger-container" onclick="myFunction(this)">
@@ -50,7 +56,14 @@
           <div class="bar2"></div>
           <div class="bar3"></div>
         </div>
-        <script></script>
+        <div class="mobile-menu">
+          <ul class="mobile-navigation__ul">
+            <li><a href="#goBackHome"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#project-showcase"><i class="fas fa-laptop-code"></i> Projects</a></li>
+            <li><a href="#aboutDetails"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#contactDetails"><i class="fas fa-envelope"></i> Contact</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <section class="fh5co-top-banner" id="goBackHome">
@@ -65,26 +78,29 @@
           </div>
           <div class="top-banner__text-down">
             <h2 class="myName top-banner__h2">Oyebade</h2>
-            <span class="textFont brand-span">Genius, Computer intelligence.</span>
+            <span class="textFont brand-span typing-text">Software Engineer & AI Specialist</span>
           </div>
           
-          <a href="#aboutDetails" class="brand-button">Read bio > </a>
+          <div class="banner-buttons">
+            <a href="#aboutDetails" class="brand-button">Read bio <i class="fas fa-arrow-right"></i></a>
+            <a href="#project-showcase" class="brand-button outline">My Work <i class="fas fa-laptop-code"></i></a>
+          </div>
         </div>
       </div>
     </section>
-    <section class="fh5co-about-me" id="aboutDetails">
+    <section class="fh5co-about-me fade-in" id="aboutDetails">
       <div class="about-me-inner site-container">
         <article class="portfolio-wrapper">
           <div class="portfolio__img">
             <img
               src="./images/tech-logo.jpg"
-              class="historyPic about-me__profile"
+              class="historyPic about-me__profile glow-effect"
               alt="about me profile picture"
             />
           </div>
           <div class="portfolio__bottom">
             <div class="portfolio__name">
-              <h2 class="finalImage" class="universal-h2">Oluwatobiloba O. Oyebade</h2>
+              <h2 class="finalImage universal-h2">Oluwatobiloba O. Oyebade</h2>
             </div>
             <p></p>
           </div>
@@ -94,19 +110,19 @@
             <div class="about-me-single-slide">
               <h2 class="doFont universal-h2 universal-h2-bckg">About me</h2>
               <p>
-                <span>I'm</span> a digital technology artisan <strong></strong> solid in the fields of software engineering and AI.             
+                <span>I'm</span> a visionary software engineer and AI specialist with a passion for crafting innovative digital solutions. My expertise spans across web development, artificial intelligence, and scalable software architecture. I transform complex problems into elegant, user-centric solutions that drive real-world impact.             
               </p>
-              <h4>Oluwatobi</h4
+              <h4>Oluwatobi</h4>
             </div>
             <div class="about-me-single-slide">
               <h2 class="doFont universal-h2 universal-h2-bckg">
-                short story
+                Professional Journey
               </h2>
-              <p>Oluwatobiloba Oyebade is a software engineer and tech instructor with a vision of impacting artificial intelligence, specifically in agricultural robotics. He has deep experience in developing high-performance, scalable, and agile SDLC-patterned software products across different platforms like web, mobile, desktop, and CLI.
+              <p>With deep experience in developing high-performance, scalable applications across web, mobile, desktop, and CLI platforms, I've successfully delivered solutions that solve real-world challenges. My work spans state-of-the-art AI systems, e-commerce platforms, fintech solutions, and educational technologies.
 
-In recent years, he has built production and real-world applications, including sales-boosting e-commerce systems, state-of-the-art AI systems, fintech solutions (such as a research paper on deep learning for stock market uncertainty prediction), self-driving vehicle AI, scholarship-sponsored computer vision expert systems powered by Amazon and Intel deployed to the Amazon cloud, financial service web applications, educational platforms, among many other software endeavors.
-
-He has also worked as a machine learning engineer and data science intern at a UK firm and Hugging Face, respectively, contributing to open-source projects and enhancing model performance. Oluwatobiloba holds a BSc in Computer Science with a robust CGPA. He has received awards in AI competitions and completed various certifications in AI, web design, and programming languages.</p>
+              My AI portfolio includes research in deep learning for financial market prediction, computer vision systems deployed to AWS cloud, and intelligent automation solutions. I approach each project with meticulous attention to detail, ensuring robust architecture and exceptional user experience.
+              
+              My commitment to excellence has been recognized through awards in AI competitions and certifications in machine learning, web design, and programming languages. I continually seek to push boundaries and explore new technologies to create meaningful impact.</p>
               <h4>Oluwatobi</h4>	
             </div>
           </div>
@@ -115,8 +131,228 @@ He has also worked as a machine learning engineer and data science intern at a U
       <div class="about-me-bckg"></div>
     </section>
 
+    <!-- Project Showcase Section -->
+    <section class="project-showcase" id="project-showcase">
+      <div class="site-container">
+        <h2 class="universal-h2 universal-h2-bckg">My Work</h2>
+        <div class="category-tabs">
+          <button class="category-tab active" data-category="web-dev"><i class="fas fa-globe"></i> Web Development</button>
+          <button class="category-tab" data-category="ai-ml"><i class="fas fa-brain"></i> AI & Machine Learning</button>
+          <button class="category-tab" data-category="general"><i class="fas fa-tools"></i> Custom Solutions</button>
+        </div>
+        
+        <div class="projects-container">
+          <!-- Web Development Projects -->
+          <div class="project-category active" id="web-dev">
+            <div class="projects-grid">
+              <div class="project-card fade-in">
+                <div class="project-image">
+                  <img src="https://images.unsplash.com/photo-1611071536243-eaa73ef46ce8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Maktaris Herbs Store">
+                  <div class="project-overlay">
+                    <div class="project-links">
+                      <a href="https://maktaris.onrender.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                      <a href="https://github.com/tbeetech/maktaris" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-details">
+                  <h3>Maktaris Herbs Store</h3>
+                  <p>A full-featured e-commerce platform for herbal products with product categorization, user authentication, shopping cart, order management, and payment processing integration.</p>
+                  <div class="project-tech">
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>MongoDB</span>
+                    <span>EJS</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-card fade-in">
+                <div class="project-image">
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="FEB Luxury Store">
+                  <div class="project-overlay">
+                    <div class="project-links">
+                      <a href="https://febluxury.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                      <a href="https://github.com/tbeetech/feb_frontend" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-details">
+                  <h3>FEB Luxury</h3>
+                  <p>Premium fashion e-commerce platform with advanced product filtering, user authentication, wishlists, cart management, and secure payment integration. Built with a modern microservices architecture.</p>
+                  <div class="project-tech">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                    <span>Redux</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card fade-in">
+                <div class="project-image">
+                  <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Services Website">
+                  <div class="project-overlay">
+                    <div class="project-links">
+                      <a href="https://loan-landing-page.onrender.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                      <a href="https://github.com/tbeetech/loan_landing_page" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-details">
+                  <h3>Financial Services Platform</h3>
+                  <p>High-conversion loan service landing page featuring interactive loan calculators, streamlined application forms, service descriptions, and customer testimonials with a responsive design.</p>
+                  <div class="project-tech">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Bootstrap</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-card fade-in">
+                <div class="project-image">
+                  <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="TbeeTech Company Website">
+                  <div class="project-overlay">
+                    <div class="project-links">
+                      <a href="https://tbeetech.onrender.com/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                      <a href="https://github.com/tbeetech/tbeetech" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-details">
+                  <h3>TbeeTech Solutions</h3>
+                  <p>Corporate IT solutions website showcasing services, portfolio, team information, and testimonials. Features optimized performance, responsive design, and modern UI/UX principles.</p>
+                  <div class="project-tech">
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>Bootstrap</span>
+                    <span>jQuery</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- AI & ML Projects -->
+          <div class="project-category" id="ai-ml">
+            <div class="projects-grid">
+              <div class="project-card fade-in">
+                <div class="project-image">
+                  <img src="https://images.unsplash.com/photo-1621155346337-1d19476ba7d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AWS Computer Vision">
+                  <div class="project-overlay">
+                    <div class="project-links">
+                      <a href="https://github.com/tbeetech/AWS-POWERED-AI-IMAGE-CLASSIFIER" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-details">
+                  <h3>AWS Computer Vision Classifier</h3>
+                  <p>Cloud-based image classification system built on AWS infrastructure, leveraging deep learning for real-time object detection with high precision. Includes scalable deployment architecture.</p>
+                  <div class="project-tech">
+                    <span>AWS</span>
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>OpenCV</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="project-card fade-in">
+                <div class="project-image">
+                  <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stock Market Prediction">
+                  <div class="project-overlay">
+                    <div class="project-links">
+                      <a href="https://github.com/tbeetech/LSTM-Stock-price-predictor" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-details">
+                  <h3>Stock Market Prediction</h3>
+                  <p>Advanced financial forecasting system using LSTM neural networks to predict stock market trends. Features comprehensive data analysis, visualization tools, and predictive modeling capabilities.</p>
+                  <div class="project-tech">
+                    <span>Python</span>
+                    <span>LSTM</span>
+                    <span>Pandas</span>
+                    <span>Matplotlib</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card fade-in">
+                <div class="project-image">
+                  <img src="https://images.unsplash.com/photo-1557179045-153e7e11d173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Self-driving AI Model">
+                  <div class="project-overlay">
+                    <div class="project-links">
+                      <a href="https://github.com/tbeetech/autonomous-vehicle-vision" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-details">
+                  <h3>Autonomous Vehicle Vision</h3>
+                  <p>Computer vision system for autonomous vehicles that identifies traffic signs, detects obstacles, and analyzes road conditions in real-time using deep learning algorithms and state recognition.</p>
+                  <div class="project-tech">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>Computer Vision</span>
+                    <span>Neural Networks</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Customized Solutions -->
+          <div class="project-category" id="general">
+            <div class="custom-solutions-message">
+              <div class="custom-solutions-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Custom IT Solutions</h3>
+              <p>I specialize in developing tailored software solutions that address specific business challenges and requirements. From concept to deployment, I deliver high-quality custom applications with:</p>
+              
+              <div class="solutions-features">
+                <div class="solution-feature">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Enterprise web applications</span>
+                </div>
+                <div class="solution-feature">
+                  <i class="fas fa-check-circle"></i>
+                  <span>E-commerce platforms</span>
+                </div>
+                <div class="solution-feature">
+                  <i class="fas fa-check-circle"></i>
+                  <span>AI-powered solutions</span>
+                </div>
+                <div class="solution-feature">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Data analytics dashboards</span>
+                </div>
+                <div class="solution-feature">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Mobile app development</span>
+                </div>
+                <div class="solution-feature">
+                  <i class="fas fa-check-circle"></i>
+                  <span>API integration services</span>
+                </div>
+              </div>
+              
+              <p>Let's transform your ideas into reality with cutting-edge technology and professional expertise.</p>
+              
+              <div class="contact-button-wrapper">
+                <a href="#contactDetails" class="brand-button">Get in Touch <i class="fas fa-arrow-right"></i></a>
+                <a href="https://wa.link/w3e3ep" class="brand-button outline"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Social -->
-    <section class="fh5co-social">
+    <section class="fh5co-social fade-in">
       <div class="site-container">
         <div class="social">
           <h5 class="doFont">Shall we discuss?</h5>
@@ -138,81 +374,87 @@ He has also worked as a machine learning engineer and data science intern at a U
     <!-- Social -->
 
     <!-- Footer -->
-    <footer id="contactDetails" class="site-footer">
-      <div class="site-container">
-        <div class="footer-inner">
-          <div class="footer-info">
-            <div class="footer-info__left">
-              <img
-                src="./images/footer-img.jpg"
-                width="260px"
-                alt="about me image"
-              />
-            </div>
-            <div class="footer-info__right">
-              <h5 class="finalTextEdit">Get In Touch</h5>
-              <a style="color:yellow" href="tel:+2348122536647">+2349110191422</a>    
-              <a style="color:yellow" href="mailto:tobirammar@example.com">tobirammar@gmail.com</a>
-              <div class="social-icons">
-                <a style="padding:14px;" class="linking" href="https://www.instagram.com/tbeetech_"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a style="padding:14px;" class="linking" href="https://wa.link/w3e3ep"
-                  ><i class="fab fa-whatsapp"></i
-                ></a>
-                <a style="padding:14px;" class="linking" href="https://www.twitter.com/tbeetech"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a style="padding:14px;" class="linking" href="https://github.com/tbeetech"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-            </div>
-        
-          </div>
-              	  
-        
-          </br>
-          <a style="padding:14px;" class="linking" href="https://www.linkedin.com/in/tobi-oyebade-b65b001a6"
-                  ><i class="fab fa-linkedin"></i
-                ></a>
+    <footer id="contactDetails" class="site-footer fade-in">
+      <div class="footer-waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#111" fill-opacity="1" d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+      </div>
       
-          <div class="footer-contact-form">
-<!--             <h5 class="finalTextEdit">Contact Form</h5> -->
-<!--             <form class="contact-form">
-              <div class="contact-form__input">
-                <input
-                  class="finalTextEdit"
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                />
-                <input
-                  class="finalTextEdit"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                />
-              </div>
-              <textarea></textarea>
-              <input
-                type="submit"
-                name="submit"
-                value="Submit"
-                class="submit-button finalTextEdit"
-              />
-            </form> -->
+      <div class="site-container">
+        <div class="footer-grid">
+          <!-- About Column -->
+          <div class="footer-column">
+            <div class="footer-logo">
+              <h3 class="footer-title">TBEETECH</h3>
+              <div class="footer-divider"></div>
+            </div>
+            <p class="footer-description">Transforming complex problems into elegant, user-centric solutions through innovative software engineering and artificial intelligence.</p>
+          </div>
+          
+          <!-- Quick Links -->
+          <div class="footer-column">
+            <h3 class="footer-title">Navigation</h3>
+            <div class="footer-divider"></div>
+            <ul class="footer-links">
+              <li><a href="#goBackHome"><i class="fas fa-angle-right"></i> Home</a></li>
+              <li><a href="#aboutDetails"><i class="fas fa-angle-right"></i> About</a></li>
+              <li><a href="#project-showcase"><i class="fas fa-angle-right"></i> Projects</a></li>
+              <li><a href="#contactDetails"><i class="fas fa-angle-right"></i> Contact</a></li>
+            </ul>
+          </div>
+          
+          <!-- Contact Info -->
+          <div class="footer-column">
+            <h3 class="footer-title">Get In Touch</h3>
+            <div class="footer-divider"></div>
+            <ul class="footer-contact-info">
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+2349110191422">+234 911 019 1422</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:tobirammar@gmail.com">tobirammar@gmail.com</a>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Lagos, Nigeria</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="footer-column">
+            <h3 class="footer-title">Connect</h3>
+            <div class="footer-divider"></div>
+            <div class="footer-social-grid">
+              <a href="https://www.linkedin.com/in/tobi-oyebade-b65b001a6" class="footer-social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/tbeetech" class="footer-social-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.twitter.com/tbeetech" class="footer-social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/tbeetech_" class="footer-social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://wa.link/w3e3ep" class="footer-social-link" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
+      
       <div class="footer-bottom">
         <div class="site-container footer-bottom-inner">
-          <p class="finalStatic">
-            ©2024
-            <a style="text-align:center;" href="https://tbeetech.github.io" target="_blank">
-            <strong>Authored</strong> by Oluwatobi O. Oyebade.<strong></strong></a
-            >
+          <p class="copyright">
+            &copy; 2024 <a href="https://tbeetech.github.io" target="_blank">Oluwatobi O. Oyebade</a> • All Rights Reserved
           </p>
+          <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+          </button>
         </div>
       </div>
     </footer>
@@ -221,7 +463,9 @@ He has also worked as a machine learning engineer and data science intern at a U
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
+
 
