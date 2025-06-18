@@ -33,9 +33,24 @@
       href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" 
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <title>TbeeTech</title>
   </head>
   <body>
+    <div class="promo-announcement">
+      🎉 70% off on all services! Limited time offer - <span id="promoCountdown"></span>
+    </div>
     <div id="particles-js"></div>
     <nav class="site-navigation">
       <div class="site-navigation-inner site-container">
@@ -45,23 +60,11 @@
         </div>
         <div class="main-navigation">
           <ul class="main-navigation__ul">
-            <li id="home"><a href="#goBackHome"><i class="fas fa-home"></i> Home</a></li>
-            <li id="projects"><a href="#project-showcase"><i class="fas fa-laptop-code"></i> Projects</a></li>
-            <li id="about"><a href="#aboutDetails"><i class="fas fa-user"></i> About</a></li>
-            <li id="contact"><a href="#contactDetails"><i class="fas fa-envelope"></i> Contact</a></li>
-          </ul>
-        </div>
-        <div id="myBtn" class="burger-container" onclick="myFunction(this)">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </div>
-        <div class="mobile-menu">
-          <ul class="mobile-navigation__ul">
             <li><a href="#goBackHome"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#project-showcase"><i class="fas fa-laptop-code"></i> Projects</a></li>
             <li><a href="#aboutDetails"><i class="fas fa-user"></i> About</a></li>
             <li><a href="#contactDetails"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="https://wa.link/w3e3ep" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
           </ul>
         </div>
       </div>
@@ -79,6 +82,14 @@
           <div class="top-banner__text-down">
             <h2 class="myName top-banner__h2">Oyebade</h2>
             <span class="textFont brand-span typing-text">Software Engineer & AI Specialist</span>
+          </div>
+          <div class="service-carousel">
+            <div class="carousel-item active">All Software Solutions</div>
+            <div class="carousel-item">AI & Machine Learning</div>
+            <div class="carousel-item">Web Development</div>
+            <div class="carousel-item">Mobile App (Cross Platform)</div>
+            <div class="carousel-item">Custom IT Solutions</div>
+            <div class="carousel-item">Cloud Services</div>
           </div>
           
           <div class="banner-buttons">
@@ -355,57 +366,80 @@
     <section class="fh5co-social fade-in">
       <div class="site-container">
         <div class="social">
-          <h5 class="doFont">Shall we discuss?</h5>
+          <h5 class="doFont">Let's Connect</h5>
           <div class="social-icons">
-            <a class="linkingWhite" href="https://wa.link/w3e3ep"
-                  ><i class="fab fa-whatsapp"></i
-                ></a>
-            <a class="linkingWhite" href="https://www.instagram.com/tbeetech_"
-              ><i class="fab fa-instagram"></i
-            ></a>
-
-            <a class="linkingWhite" href="https://www.twitter.com/tbeetech"
-              ><i class="fab fa-twitter"></i
-            ></a>
+            <a href="https://wa.link/w3e3ep" class="social-link" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp fa-2x"></i>
+            </a>
+            <a href="https://www.instagram.com/tbeetech_" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://www.twitter.com/tbeetech" class="social-link" aria-label="Twitter">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+            <a href="https://github.com/tbeetech" class="social-link" aria-label="GitHub">
+              <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/tobi-oyebade-b65b001a6" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
     <!-- Social -->
 
-    <!-- Footer -->
-    <footer id="contactDetails" class="site-footer fade-in">
-      <div class="footer-waves">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#111" fill-opacity="1" d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    <!-- Email Contact Section -->
+    <section class="email-contact-section fade-in" id="emailContact">
+      <div class="site-container">
+        <h2 class="universal-h2">Get in Touch</h2>
+        <form class="email-form" id="emailForm">
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email">Your Email</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="subject" name="subject" placeholder=" " required>
+            <label for="subject">Subject</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
       </div>
-      
+    </section>
+    
+    <!-- Footer -->
+    <footer class="site-footer fade-in" id="contactDetails">
       <div class="site-container">
         <div class="footer-grid">
           <!-- About Column -->
           <div class="footer-column">
-            <div class="footer-logo">
-              <h3 class="footer-title">TBEETECH</h3>
-              <div class="footer-divider"></div>
-            </div>
-            <p class="footer-description">Transforming complex problems into elegant, user-centric solutions through innovative software engineering and artificial intelligence.</p>
+            <img src="images/tech-logo.jpg" alt="TbeeTech Logo" class="footer-logo-img">
+            <h3 class="footer-title">About TbeeTech</h3>
+            <p class="footer-description">
+              Transforming ideas into innovative solutions through cutting-edge technology and expert software engineering.
+            </p>
           </div>
           
           <!-- Quick Links -->
           <div class="footer-column">
-            <h3 class="footer-title">Navigation</h3>
-            <div class="footer-divider"></div>
+            <h3 class="footer-title">Quick Links</h3>
             <ul class="footer-links">
-              <li><a href="#goBackHome"><i class="fas fa-angle-right"></i> Home</a></li>
-              <li><a href="#aboutDetails"><i class="fas fa-angle-right"></i> About</a></li>
-              <li><a href="#project-showcase"><i class="fas fa-angle-right"></i> Projects</a></li>
-              <li><a href="#contactDetails"><i class="fas fa-angle-right"></i> Contact</a></li>
+              <li><a href="#goBackHome"><i class="fas fa-chevron-right"></i>Home</a></li>
+              <li><a href="#aboutDetails"><i class="fas fa-chevron-right"></i>About</a></li>
+              <li><a href="#project-showcase"><i class="fas fa-chevron-right"></i>Projects</a></li>
+              <li><a href="#contactDetails"><i class="fas fa-chevron-right"></i>Contact</a></li>
             </ul>
           </div>
           
           <!-- Contact Info -->
           <div class="footer-column">
-            <h3 class="footer-title">Get In Touch</h3>
-            <div class="footer-divider"></div>
+            <h3 class="footer-title">Contact Info</h3>
             <ul class="footer-contact-info">
               <li>
                 <i class="fas fa-phone"></i>
@@ -422,11 +456,13 @@
             </ul>
           </div>
           
-          <!-- Social Links -->
+          <!-- Connect -->
           <div class="footer-column">
-            <h3 class="footer-title">Connect</h3>
-            <div class="footer-divider"></div>
+            <h3 class="footer-title">Connect With Us</h3>
             <div class="footer-social-grid">
+              <a href="https://wa.link/w3e3ep" class="footer-social-link" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+              </a>
               <a href="https://www.linkedin.com/in/tobi-oyebade-b65b001a6" class="footer-social-link" aria-label="LinkedIn">
                 <i class="fab fa-linkedin-in"></i>
               </a>
@@ -439,22 +475,19 @@
               <a href="https://www.instagram.com/tbeetech_" class="footer-social-link" aria-label="Instagram">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a href="https://wa.link/w3e3ep" class="footer-social-link" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-              </a>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <div class="site-container footer-bottom-inner">
-          <p class="copyright">
-            &copy; 2024 <a href="https://tbeetech.github.io" target="_blank">Oluwatobi O. Oyebade</a> • All Rights Reserved
-          </p>
-          <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-            <i class="fas fa-chevron-up"></i>
-          </button>
+        
+        <div class="footer-bottom">
+          <div class="footer-bottom-inner">
+            <p class="copyright">
+              &copy; 2024 <a href="https://tbeetech.github.io">TbeeTech</a> • All Rights Reserved
+            </p>
+            <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+              <i class="fas fa-arrow-up"></i>
+            </button>
+          </div>
         </div>
       </div>
     </footer>
