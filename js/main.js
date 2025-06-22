@@ -274,7 +274,11 @@ $(document).ready(function() {
 	);
 });
 
-
+// Set copyright year dynamically
+$(document).ready(function() {
+  const year = new Date().getFullYear();
+  $('#copyright-year').text(year);
+});
 
 var counta = 0;
 

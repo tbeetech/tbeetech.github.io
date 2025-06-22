@@ -543,7 +543,7 @@
         <div class="footer-bottom">
           <div class="footer-bottom-inner">
             <p class="copyright">
-              &copy; 2024 <a href="https://tbeetech.github.io">TbeeTech</a> • All Rights Reserved
+              &copy; <span id="copyright-year"></span> <a href="https://tbeetech.github.io">TbeeTech</a> • All Rights Reserved
             </p>
             <button id="back-to-top" class="back-to-top" aria-label="Back to top">
               <i class="fas fa-arrow-up"></i>
@@ -559,6 +559,13 @@
     <script src="js/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var year = new Date().getFullYear();
+    var el = document.getElementById('copyright-year');
+    if (el) el.textContent = year;
+  });
+</script>
   </body>
 </html>
 
