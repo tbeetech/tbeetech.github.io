@@ -58,20 +58,37 @@ $(document).ready(function() {
 		]
 	});
 	
-	/* Project tabs functionality with animation */
+	/* Project tabs functionality with enhanced animation */
 	$('.category-tab').on('click', function() {
         const category = $(this).data('category');
         
-        // Update active tab with animation
+        if ($(this).hasClass('active')) return; // Prevent re-clicking active tab
+        
+        // Update active tab state
         $('.category-tab').removeClass('active');
         $(this).addClass('active');
         
-        // Fade out current category
+        // Smooth transition between categories
         $('.project-category.active').fadeOut(300, function() {
-            // Show corresponding category with fade in
-            $('.project-category').removeClass('active').hide();
-            $('#' + category).addClass('active').fadeIn(300);
+            $(this).removeClass('active');
+            
+            // Show new category with fade effect
+            $('#' + category)
+                .addClass('active')
+                .css('opacity', 0)
+                .show()
+                .animate({ opacity: 1 }, 300);
         });
+        
+        // Trigger fade-in animations for new category content
+        setTimeout(() => {
+            $('#' + category).find('.fade-in').each(function(index) {
+                $(this).css({
+                    'animation': 'fadeInUp 0.5s ease forwards',
+                    'animation-delay': (index * 0.1) + 's'
+                });
+            });
+        }, 300);
     });
     
     /* Enhanced scroll animations */
@@ -565,5 +582,126 @@ $(document).ready(function() {
     // Add new click handler
     $('.mobile-navigation__ul a').on('click', handleMobileNavClick);
     
-    // ...existing code...
+    // Initialize all components when DOM is ready
+    initBackToTop();
+    initSmoothScroll();
+    initProjectTabs();
+    initServiceCarousel();
+    initEmailForm();
 });
+
+// Back to top functionality
+function initBackToTop() {
+    const backToTop = $('#back-to-top');
+    
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 300) {
+            backToTop.fadeIn();
+        } else {
+            backToTop.fadeOut();
+        }
+    });
+    
+    backToTop.click(function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 800);
+    });
+}
+
+// Smooth scrolling for all anchor links
+function initSmoothScroll() {
+    $('a[href*="#"]:not([href="#"])').click(function(e) {
+        if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && 
+            location.hostname === this.hostname) {
+            
+            e.preventDefault();
+            const target = $(this.hash);
+            const targetOffset = target.length ? target.offset().top - 80 : 0;
+            
+            $('html, body').animate({
+                scrollTop: targetOffset
+            }, 800);
+            
+            return false;
+        }
+    });
+}
+
+// Project tabs functionality
+function initProjectTabs() {
+    $('.category-tab').click(function() {
+        const category = $(this).data('category');
+        
+        // Handle active states
+        $('.category-tab').removeClass('active');
+        $(this).addClass('active');
+        
+        // Smooth transition between categories
+        $('.project-category.active').fadeOut(300, function() {
+            $(this).removeClass('active');
+            
+            $(`#${category}`)
+                .addClass('active')
+                .css('opacity', 0)
+                .show()
+                .animate({ opacity: 1 }, 300);
+                
+            // Trigger animations for new content
+            $(`#${category} .fade-in`).each(function(index) {
+                $(this)
+                    .css({
+                        'animation': 'fadeInUp 0.5s ease forwards',
+                        'animation-delay': `${index * 0.1}s`
+                    });
+            });
+        });
+    });
+}
+
+// Service carousel functionality
+function initServiceCarousel() {
+    let currentItem = 0;
+    const items = $('.carousel-item');
+    const totalItems = items.length;
+    
+    function showNextItem() {
+        items.eq(currentItem).removeClass('active');
+        currentItem = (currentItem + 1) % totalItems;
+        items.eq(currentItem).addClass('active');
+    }
+    
+    // Change item every 3 seconds
+    setInterval(showNextItem, 3000);
+}
+
+// Email form handling
+function initEmailForm() {
+    $('#emailForm').submit(function(e) {
+        e.preventDefault();
+        
+        // Add your email form submission logic here
+        const email = $('#email').val();
+        const subject = $('#subject').val();
+        const message = $('#message').val();
+        
+        // Basic validation
+        if (!email || !subject || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        // Email validation
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        // You can add your form submission code here
+        console.log('Form submitted:', { email, subject, message });
+    });
+}
+
+// Email validation helper
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
