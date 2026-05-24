@@ -1,255 +1,291 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/slick.css" />
-    <link rel="stylesheet" href="css/modern.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Karma&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
-      rel="stylesheet"
-    />
-    <link  href="fonts">
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link 
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" 
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Oluwatobiloba Oyebade | Founder &amp; CEO, TobseyTech | Software Engineer &amp; AI Specialist</title>
     <meta name="description" content="Oluwatobiloba Oyebade (Tobi) | Founder &amp; CEO of TobseyTech Agency. Software engineer and AI specialist based in Lagos, Nigeria. Available for hire, consulting, and partnerships." />
     <meta property="og:title" content="Oluwatobiloba Oyebade | Founder &amp; CEO, TobseyTech" />
     <meta property="og:description" content="Founder &amp; CEO of TobseyTech Agency. Software engineer and AI specialist building world-class digital products." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="promo-announcement">
-      🎉 70% off on all services! Limited time offer: <span id="promoCountdown"></span>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader-inner">
+        <div class="preloader-logo">TBEETECH</div>
+        <div class="preloader-bar"><div class="preloader-fill"></div></div>
+        <div class="preloader-text">Initializing Interface...</div>
+      </div>
     </div>
-    <div id="particles-js"></div>
-    <nav class="site-navigation">
-      <div class="site-navigation-inner site-container">
-        <div class="logo-container">
-          <h1 class="logox">TBEETECH</h1>
-          <div class="logo-highlight"></div>
-        </div>
-        <div class="main-navigation">
-          <ul class="main-navigation__ul">
-            <li><a href="#goBackHome"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#aboutDetails"><i class="fas fa-user"></i> About</a></li>
-            <li><a href="#agency-spotlight"><i class="fas fa-building"></i> Agency</a></li>
-            <li><a href="#project-showcase"><i class="fas fa-laptop-code"></i> Projects</a></li>
-            <li><a href="#work-with-me"><i class="fas fa-handshake"></i> Work With Me</a></li>
-            <li><a href="#contactDetails"><i class="fas fa-envelope"></i> Contact</a></li>
-            <li><a href="https://www.tobseytech.biz" target="_blank" class="nav-agency-link"><i class="fas fa-external-link-alt"></i> TobseyTech</a></li>
-          </ul>
-        </div>
+
+    <!-- Neural Network Canvas Background -->
+    <canvas id="neuralCanvas"></canvas>
+
+    <!-- Promo Bar -->
+    <div class="promo-bar" id="promoBar">
+      <span class="promo-pulse"></span>
+      <span>🚀 70% off all services — Limited slots:</span>
+      <span class="promo-countdown" id="promoCountdown"></span>
+      <button class="promo-close" id="promoClose" aria-label="Close">&#x2715;</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo">
+          <span class="nav-logo-text">TBEETECH</span>
+          <span class="nav-logo-dot"></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+          <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+          <li><a href="#agency" class="nav-link" data-section="agency">Agency</a></li>
+          <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+          <li><a href="#engage" class="nav-link" data-section="engage">Work With Me</a></li>
+          <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+          <li><a href="https://www.tobseytech.biz" target="_blank" class="nav-link nav-link--agency">TobseyTech <i class="fas fa-external-link-alt"></i></a></li>
+        </ul>
+        <button class="nav-burger" id="navBurger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
-    <section class="fh5co-top-banner" id="goBackHome">
-      <div class="top-banner__inner site-container">
-        <div class="top-banner__image">
-          <!-- <img src="./images/main.png" alt="author image" /> -->
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-menu-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#agency">Agency</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#engage">Work With Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://www.tobseytech.biz" target="_blank">TobseyTech ↗</a></li>
+      </ul>
+    </div>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-pulse"></span>
+          Founder &amp; CEO &nbsp;·&nbsp;
+          <a href="https://www.tobseytech.biz" target="_blank">TobseyTech Agency</a>
         </div>
-        <div class="top-banner__text">
-          <div class="founder-badge">
-            <span class="badge-dot"></span>
-            <span>Founder &amp; CEO &nbsp;·&nbsp; <a href="https://www.tobseytech.biz" target="_blank">TobseyTech Agency</a></span>
+        <p class="hero-greeting">Hi there, I'm</p>
+        <h1 class="hero-name">
+          <span class="hero-name-line">Oluwatobiloba</span>
+          <span class="hero-name-line hero-name-line--accent">Oyebade</span>
+        </h1>
+        <div class="hero-roles">
+          <span class="hero-role-prefix">—</span>
+          <span class="hero-typed" id="heroTyped"></span>
+          <span class="hero-cursor">|</span>
+        </div>
+        <div class="hero-vps">
+          <div class="hero-vp"><span class="vp-num">7</span><span class="vp-label">Yrs Engineering</span></div>
+          <div class="hero-vp-divider"></div>
+          <div class="hero-vp"><span class="vp-num">13</span><span class="vp-label">Products Shipped</span></div>
+          <div class="hero-vp-divider"></div>
+          <div class="hero-vp"><span class="vp-num">18</span><span class="vp-label">Happy Clients</span></div>
+        </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn--primary magnetic-btn">
+            <span>Hire Me</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="https://www.tobseytech.biz" target="_blank" class="btn btn--ghost magnetic-btn">
+            <span>Visit Agency</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="https://wa.link/w3e3ep" target="_blank" class="btn btn--whatsapp magnetic-btn">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo-wrap">
+          <div class="hero-hex-ring hex-ring-1"></div>
+          <div class="hero-hex-ring hex-ring-2"></div>
+          <div class="hero-photo-frame">
+            <img src="./images/oluwatobiloba-profile.jpeg" alt="Oluwatobiloba Oyebade" class="hero-photo" />
           </div>
-          <div class="top-banner__text-up">
-            <span class="textFont brand-span">hi there, i'm</span>
-            <h2 class="myName top-banner__h2">Oluwatobiloba</h2>
+          <div class="hero-orbit hero-orbit-1">
+            <div class="orbit-dot"><i class="fas fa-code"></i></div>
           </div>
-          <div class="top-banner__text-down">
-            <h2 class="myName top-banner__h2">Oyebade</h2>
-            <span class="typing-text">Software Engineer &amp; AI Specialist</span>
+          <div class="hero-orbit hero-orbit-2">
+            <div class="orbit-dot"><i class="fas fa-brain"></i></div>
           </div>
-          <div class="service-carousel">
-            <div class="carousel-item active">All Software Solutions</div>
-            <div class="carousel-item">AI &amp; Machine Learning</div>
-            <div class="carousel-item">Web &amp; Mobile Development</div>
-            <div class="carousel-item">Custom IT Solutions</div>
-            <div class="carousel-item">Cloud Architecture</div>
-            <div class="carousel-item">CTO-as-a-Service</div>
+          <div class="hero-orbit hero-orbit-3">
+            <div class="orbit-dot"><i class="fas fa-cloud"></i></div>
           </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
 
-          <div class="hero-value-props">
-            <div class="hero-vp"><i class="fas fa-check-circle"></i> <span>Founder-led execution</span></div>
-            <div class="hero-vp"><i class="fas fa-check-circle"></i> <span>7 Years of Engineering</span></div>
-            <div class="hero-vp"><i class="fas fa-check-circle"></i> <span>13 Products Delivered</span></div>
+    <!-- ═══════════ ABOUT ═══════════ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-label">// about.me</div>
+        <div class="about-grid">
+          <div class="about-photo-col reveal">
+            <div class="about-photo-wrapper">
+              <img src="./images/oluwatobiloba-profile.jpeg" alt="Oluwatobiloba Oyebade" class="about-photo" />
+              <div class="about-photo-overlay"></div>
+            </div>
+            <div class="about-id-card">
+              <div class="id-card-name">Oluwatobiloba O. Oyebade</div>
+              <div class="id-card-tags">
+                <span class="id-tag">Founder &amp; CEO</span>
+                <span class="id-tag">AI Specialist</span>
+                <span class="id-tag">Software Engineer</span>
+              </div>
+              <a href="Oluwatobiloba Oyebade.pdf" download="Oluwatobiloba_Oyebade_CV.pdf" class="btn btn--outline-sm">
+                <i class="fas fa-download"></i> Download CV
+              </a>
+            </div>
           </div>
-
-          <div class="banner-buttons">
-            <a href="#emailContact" class="brand-button primary-cta">Hire Me <i class="fas fa-user-tie"></i></a>
-            <a href="https://www.tobseytech.biz" target="_blank" class="brand-button outline">Visit Agency <i class="fas fa-external-link-alt"></i></a>
-            <a href="https://wa.link/w3e3ep" target="_blank" class="brand-button outline whatsapp-cta"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <div class="about-content-col reveal">
+            <div class="about-tabs">
+              <button class="about-tab active" data-tab="bio">Bio</button>
+              <button class="about-tab" data-tab="mission">Mission</button>
+              <button class="about-tab" data-tab="journey">Journey</button>
+            </div>
+            <div class="about-panels">
+              <div class="about-panel active" id="tab-bio">
+                <h2 class="section-heading">About Me</h2>
+                <p>I'm <strong>Oluwatobiloba Oyebade</strong>, the Founder and CEO of <a href="https://www.tobseytech.biz" target="_blank" class="inline-link">TobseyTech Agency</a>. As the Innovational Conductor of the agency, I bring together vision, engineering excellence, and thoughtful execution to guide every product we build toward meaningful outcomes.</p>
+                <p>Based in Lagos, Nigeria — I build for the world.</p>
+                <div class="about-signature">— Oluwatobi</div>
+              </div>
+              <div class="about-panel" id="tab-mission">
+                <h2 class="section-heading">Founder's Mission</h2>
+                <p>I founded TobseyTech Agency with a singular conviction: businesses deserve engineering excellence, not just code. Every product we ship reflects my belief that great technology is inseparable from great design, scalable architecture, and measurable business outcomes.</p>
+                <div class="about-signature">— Oluwatobi</div>
+              </div>
+              <div class="about-panel" id="tab-journey">
+                <h2 class="section-heading">Professional Journey</h2>
+                <p>With 7 years of engineering experience, I have delivered scalable, high-quality solutions across Machine Learning, Web Applications, Mobile Applications, and Customized Software. I hold certifications in machine learning, web engineering, and cloud architecture — committed to crafting technology that serves people with clarity and purpose.</p>
+                <div class="about-signature">— Oluwatobi</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="fh5co-about-me fade-in" id="aboutDetails">
-      <div class="about-me-inner site-container">
-        <article class="portfolio-wrapper">
-          <div class="portfolio__img">
-            <img
-              src="./images/oluwatobiloba-profile.jpeg"
-              class="historyPic about-me__profile glow-effect"
-              alt="Oluwatobiloba Oyebade - Founder TobseyTech"
-            />
-          </div>
-          <div class="portfolio__bottom">
-            <div class="portfolio__name">
-              <h2 class="finalImage universal-h2">Oluwatobiloba O. Oyebade</h2>
-            </div>
-            <div class="portfolio-role-tags">
-              <span class="role-tag">Founder &amp; CEO</span>
-              <span class="role-tag">AI Specialist</span>
-              <span class="role-tag">Software Engineer</span>
-            </div>
-            <a href="Oluwatobiloba Oyebade.pdf" download="Oluwatobiloba_Oyebade_CV.pdf" class="brand-button resume-dl-btn"><i class="fas fa-download"></i> Download CV</a>
-          </div>
-        </article>
-        <div class="about-me__text">
-          <div class="about-me-slider">
-            <div class="about-me-single-slide">
-              <h2 class="doFont universal-h2 universal-h2-bckg">About Me</h2>
-              <p>
-              <span>I'm</span> Oluwatobiloba Oyebade, the Founder and CEO of <a href="https://www.tobseytech.biz" target="_blank" class="inline-agency-link">TobseyTech Agency</a>. As the Innovational Conductor of the agency, I bring together vision, engineering excellence, and thoughtful execution to guide every product we build toward meaningful outcomes.
-              </p>
-              <h4>Oluwatobi</h4>
-            </div>
-            <div class="about-me-single-slide">
-              <h2 class="doFont universal-h2 universal-h2-bckg">Founder's Mission</h2>
-              <p>I founded TobseyTech Agency with a singular conviction: businesses deserve engineering excellence, not just code. Every product we ship reflects my belief that great technology is inseparable from great design, scalable architecture, and measurable business outcomes.</p>
-              <h4>Oluwatobi</h4>
-            </div>
-            <div class="about-me-single-slide">
-              <h2 class="doFont universal-h2 universal-h2-bckg">Professional Journey</h2>
-              <p>With 7 years of engineering experience, I have delivered scalable, high-quality solutions across Machine Learning, Web Applications, Mobile Applications, and Customized Software tailored to the specific needs of each business. I hold certifications in machine learning, web engineering, and cloud architecture, and remain committed to crafting technology that serves people and organizations with clarity and purpose.</p>
-              <h4>Oluwatobi</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="about-me-bckg"></div>
-    </section>
 
-    <!-- Agency Spotlight Section -->
-    <section class="agency-spotlight fade-in" id="agency-spotlight">
-      <div class="site-container">
-        <div class="agency-inner">
-          <div class="agency-logo-area">
-            <div class="agency-logo-text">TOBSEYTECH</div>
-            <div class="agency-tagline">The Agency</div>
-            <div class="agency-divider"></div>
-            <p class="agency-logo-desc">Where bold ideas meet world-class engineering.</p>
-            <a href="https://www.tobseytech.biz" target="_blank" class="brand-button agency-visit-btn">
-              <i class="fas fa-globe"></i> tobseytech.biz
-            </a>
+    <!-- ═══════════ AGENCY ═══════════ -->
+    <section class="section agency" id="agency">
+      <div class="agency-bg-grid"></div>
+      <div class="container">
+        <div class="section-label">// agency.overview</div>
+        <div class="agency-grid">
+          <div class="agency-brand-col reveal">
+            <div class="agency-brand-box">
+              <div class="agency-brand-name">TOBSEYTECH</div>
+              <div class="agency-brand-sub">Digital Agency</div>
+              <div class="agency-brand-rule"></div>
+              <p class="agency-brand-motto">Where bold ideas meet world-class engineering.</p>
+              <a href="https://www.tobseytech.biz" target="_blank" class="btn btn--primary magnetic-btn">
+                <i class="fas fa-globe"></i> tobseytech.biz
+              </a>
+            </div>
           </div>
-          <div class="agency-content">
+          <div class="agency-info-col reveal">
             <div class="agency-eyebrow">THE FOUNDER RELATIONSHIP</div>
-            <h2 class="agency-h2">Founder &amp; CEO | The Vision Behind TobseyTech</h2>
-            <p class="agency-desc">TobseyTech is my agency, the operating company I founded to deliver digital transformation at scale. This personal portfolio represents the founder's perspective: the vision, the craft, the accountability. Every product TobseyTech ships flows from this desk. Hiring me or engaging TobseyTech are two sides of the same coin.</p>
+            <h2 class="section-heading">The Vision Behind TobseyTech</h2>
+            <p class="agency-desc">TobseyTech is my agency — the operating company I founded to deliver digital transformation at scale. This personal portfolio represents the founder's perspective: the vision, the craft, the accountability. Every product TobseyTech ships flows from this desk. Hiring me or engaging TobseyTech are two sides of the same coin.</p>
             <div class="agency-pillars">
-              <div class="pillar"><i class="fas fa-rocket"></i><span>Product Engineering</span></div>
-              <div class="pillar"><i class="fas fa-brain"></i><span>AI Solutions</span></div>
-              <div class="pillar"><i class="fas fa-globe"></i><span>Digital Transformation</span></div>
-              <div class="pillar"><i class="fas fa-chart-line"></i><span>Growth Tech</span></div>
-              <div class="pillar"><i class="fas fa-shield-alt"></i><span>Scalable Architecture</span></div>
-              <div class="pillar"><i class="fas fa-mobile-alt"></i><span>Cross-Platform Apps</span></div>
+              <div class="agency-pillar"><i class="fas fa-rocket"></i><span>Product Engineering</span></div>
+              <div class="agency-pillar"><i class="fas fa-brain"></i><span>AI Solutions</span></div>
+              <div class="agency-pillar"><i class="fas fa-globe"></i><span>Digital Transformation</span></div>
+              <div class="agency-pillar"><i class="fas fa-chart-line"></i><span>Growth Tech</span></div>
+              <div class="agency-pillar"><i class="fas fa-shield-alt"></i><span>Scalable Architecture</span></div>
+              <div class="agency-pillar"><i class="fas fa-mobile-alt"></i><span>Cross-Platform Apps</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Agency Spotlight -->
 
-    <!-- Stats Counter Section -->
-    <section class="stats-section fade-in" id="stats">
-      <div class="site-container">
+    <!-- ═══════════ STATS ═══════════ -->
+    <section class="stats" id="stats">
+      <div class="container">
         <div class="stats-grid single-count">
-          <div class="stat-card">
-            <div class="stat-number"><span class="count" data-count="7">7</span></div>
+          <div class="stat reveal">
+            <div class="stat-num"><span class="count" data-count="7">0</span><span class="stat-plus">+</span></div>
             <div class="stat-label">Years of Engineering</div>
-            <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="stat-glow"></div>
           </div>
-          <div class="stat-card">
-            <div class="stat-number"><span class="count" data-count="13">13</span></div>
+          <div class="stat reveal">
+            <div class="stat-num"><span class="count" data-count="13">0</span><span class="stat-plus">+</span></div>
             <div class="stat-label">Products Delivered</div>
-            <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+            <div class="stat-glow"></div>
           </div>
-          <div class="stat-card">
-            <div class="stat-number"><span class="count" data-count="18">18</span></div>
+          <div class="stat reveal">
+            <div class="stat-num"><span class="count" data-count="18">0</span><span class="stat-plus">+</span></div>
             <div class="stat-label">Happy Clients</div>
-            <div class="stat-icon"><i class="fas fa-smile"></i></div>
+            <div class="stat-glow"></div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Stats -->
 
-    <!-- Skills / Tech Arsenal Section -->
-    <section class="skills-section fade-in" id="skills">
-      <div class="site-container">
-        <h2 class="universal-h2 universal-h2-bckg">Tech Arsenal</h2>
-        <p class="skills-intro">The technology stack I use to build TobseyTech's client solutions, from AI pipelines to production-grade web products.</p>
+    <!-- ═══════════ SKILLS ═══════════ -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-label">// tech.arsenal</div>
+        <h2 class="section-heading centered">Tech Arsenal</h2>
+        <p class="section-subheading centered">The stack powering TobseyTech's client solutions — from AI pipelines to production-grade web products.</p>
         <div class="skills-grid">
-          <div class="skill-category">
-            <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
-            <h3>Languages</h3>
+          <div class="skill-card reveal">
+            <div class="skill-card-icon"><i class="fas fa-code"></i></div>
+            <h3 class="skill-card-title">Languages</h3>
             <div class="skill-tags">
               <span>JavaScript</span><span>Python</span><span>TypeScript</span>
               <span>HTML5 / CSS3</span><span>SQL</span><span>Bash</span>
             </div>
           </div>
-          <div class="skill-category">
-            <div class="skill-cat-icon"><i class="fas fa-layer-group"></i></div>
-            <h3>Frameworks &amp; Libraries</h3>
+          <div class="skill-card reveal">
+            <div class="skill-card-icon"><i class="fas fa-layer-group"></i></div>
+            <h3 class="skill-card-title">Frameworks &amp; Libraries</h3>
             <div class="skill-tags">
               <span>React</span><span>Node.js</span><span>Express</span>
               <span>Next.js</span><span>Django</span><span>Bootstrap</span>
             </div>
           </div>
-          <div class="skill-category">
-            <div class="skill-cat-icon"><i class="fas fa-brain"></i></div>
-            <h3>AI &amp; Machine Learning</h3>
+          <div class="skill-card reveal">
+            <div class="skill-card-icon"><i class="fas fa-brain"></i></div>
+            <h3 class="skill-card-title">AI &amp; Machine Learning</h3>
             <div class="skill-tags">
               <span>TensorFlow</span><span>PyTorch</span><span>OpenCV</span>
               <span>LSTM</span><span>NLP</span><span>Scikit-learn</span>
             </div>
           </div>
-          <div class="skill-category">
-            <div class="skill-cat-icon"><i class="fas fa-cloud"></i></div>
-            <h3>Cloud &amp; DevOps</h3>
+          <div class="skill-card reveal">
+            <div class="skill-card-icon"><i class="fas fa-cloud"></i></div>
+            <h3 class="skill-card-title">Cloud &amp; DevOps</h3>
             <div class="skill-tags">
               <span>AWS</span><span>Docker</span><span>MongoDB</span>
               <span>PostgreSQL</span><span>Redis</span><span>Git / GitHub</span>
@@ -258,560 +294,450 @@
         </div>
       </div>
     </section>
-    <!-- End Skills -->
 
-    <!-- Project Showcase Section -->
-
-    <section class="project-showcase" id="project-showcase">
-      <div class="site-container">
-        <h2 class="universal-h2 universal-h2-bckg">My Work</h2>
-        <div class="category-tabs">
-          <button class="category-tab active" data-category="web-dev"><i class="fas fa-globe"></i> Web Development</button>
-          <button class="category-tab" data-category="ai-ml"><i class="fas fa-brain"></i> AI & Machine Learning</button>
-          <button class="category-tab" data-category="general"><i class="fas fa-tools"></i> Custom Solutions</button>
+    <!-- ═══════════ PROJECTS ═══════════ -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-label">// my.work</div>
+        <h2 class="section-heading centered">Selected Projects</h2>
+        <div class="project-tabs">
+          <button class="project-tab active" data-category="web-dev">
+            <i class="fas fa-globe"></i> Web Dev
+          </button>
+          <button class="project-tab" data-category="ai-ml">
+            <i class="fas fa-brain"></i> AI &amp; ML
+          </button>
+          <button class="project-tab" data-category="general">
+            <i class="fas fa-tools"></i> Custom Solutions
+          </button>
         </div>
-        
+
         <div class="projects-container">
-          <!-- Web Development Projects -->
+          <!-- Web Development -->
           <div class="project-category active" id="web-dev">
             <div class="projects-grid">
-              <div class="project-card fade-in">
-                <div class="project-image">
-                  <img src="https://maktaris.onrender.com/images/product-add/03.jpg" alt="Maktaris Herbs Store">
-                  <div class="project-overlay">
-                    <div class="project-links">
-                      <a href="https://maktaris.onrender.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                      <a href="https://github.com/tbeetech/maktaris" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-                    </div>
+              <div class="project-card reveal" data-tilt>
+                <div class="project-img-wrap">
+                  <img src="https://maktaris.onrender.com/images/product-add/03.jpg" alt="Maktaris Herbs Store" loading="lazy" />
+                  <div class="project-img-overlay">
+                    <a href="https://maktaris.onrender.com" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/tbeetech/maktaris" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
-                <div class="project-details">
-                  <h3>Maktaris Herbs Store</h3>
-                  <p>A full-featured e-commerce platform for herbal products with product categorization, user authentication, shopping cart, order management, and payment processing integration.</p>
+                <div class="project-body">
+                  <h3 class="project-title">Maktaris Herbs Store</h3>
+                  <p class="project-desc">Full-featured e-commerce platform for herbal products with cart, auth, orders, and payment integration.</p>
                   <div class="project-tech">
-                    <span>Node.js</span>
-                    <span>Express</span>
-                    <span>MongoDB</span>
-                    <span>EJS</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="project-card fade-in">
-                <div class="project-image">
-                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="FEB Luxury Store">
-                  <div class="project-overlay">
-                    <div class="project-links">
-                      <a href="https://febluxury.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                      <a href="https://github.com/tbeetech/feb_frontend" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-details">
-                  <h3>FEB Luxury</h3>
-                  <p>Premium fashion e-commerce platform with advanced product filtering, user authentication, wishlists, cart management, and secure payment integration. Built with a modern microservices architecture.</p>
-                  <div class="project-tech">
-                    <span>React</span>
-                    <span>Node.js</span>
-                    <span>MongoDB</span>
-                    <span>Redux</span>
+                    <span>Node.js</span><span>Express</span><span>MongoDB</span><span>EJS</span>
                   </div>
                 </div>
               </div>
 
-              <div class="project-card fade-in">
-                <div class="project-image">
-                  <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Services Website">
-                  <div class="project-overlay">
-                    <div class="project-links">
-                      <a href="https://loan-landing-page.onrender.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                      <a href="https://github.com/tbeetech/loan_landing_page" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-                    </div>
+              <div class="project-card reveal" data-tilt>
+                <div class="project-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="FEB Luxury Store" loading="lazy" />
+                  <div class="project-img-overlay">
+                    <a href="https://febluxury.com" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/tbeetech/feb_frontend" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
-                <div class="project-details">
-                  <h3>Financial Services Platform</h3>
-                  <p>High-conversion loan service landing page featuring interactive loan calculators, streamlined application forms, service descriptions, and customer testimonials with a responsive design.</p>
+                <div class="project-body">
+                  <h3 class="project-title">FEB Luxury</h3>
+                  <p class="project-desc">Premium fashion e-commerce with filtering, wishlists, and microservices architecture.</p>
                   <div class="project-tech">
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                    <span>Bootstrap</span>
+                    <span>React</span><span>Node.js</span><span>MongoDB</span><span>Redux</span>
                   </div>
                 </div>
               </div>
-              
-              <div class="project-card fade-in">
-                <div class="project-image">
-                  <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="TbeeTech Company Website">
-                  <div class="project-overlay">
-                    <div class="project-links">
-                      <a href="https://tbeetech.onrender.com/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                      <a href="https://github.com/tbeetech/tbeetech" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-                    </div>
+
+              <div class="project-card reveal" data-tilt>
+                <div class="project-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Services" loading="lazy" />
+                  <div class="project-img-overlay">
+                    <a href="https://loan-landing-page.onrender.com" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/tbeetech/loan_landing_page" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
-                <div class="project-details">
-                  <h3>TbeeTech Solutions</h3>
-                  <p>Corporate IT solutions website showcasing services, portfolio, team information, and testimonials. Features optimized performance, responsive design, and modern UI/UX principles.</p>
+                <div class="project-body">
+                  <h3 class="project-title">Financial Services Platform</h3>
+                  <p class="project-desc">High-conversion loan platform with interactive calculators and streamlined application flow.</p>
                   <div class="project-tech">
-                    <span>Node.js</span>
-                    <span>Express</span>
-                    <span>Bootstrap</span>
-                    <span>jQuery</span>
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card reveal" data-tilt>
+                <div class="project-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="TbeeTech Solutions" loading="lazy" />
+                  <div class="project-img-overlay">
+                    <a href="https://tbeetech.onrender.com/" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/tbeetech/tbeetech" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+                <div class="project-body">
+                  <h3 class="project-title">TbeeTech Solutions</h3>
+                  <p class="project-desc">Corporate IT solutions website with services showcase, portfolio, and testimonials.</p>
+                  <div class="project-tech">
+                    <span>Node.js</span><span>Express</span><span>Bootstrap</span><span>jQuery</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <!-- AI & ML Projects -->
+
+          <!-- AI / ML -->
           <div class="project-category" id="ai-ml">
             <div class="projects-grid">
-              <div class="project-card fade-in">
-                <div class="project-image">
-                  <img src="https://images.unsplash.com/photo-1621155346337-1d19476ba7d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AWS Computer Vision">
-                  <div class="project-overlay">
-                    <div class="project-links">
-                      <a href="https://github.com/tbeetech/AWS-POWERED-AI-IMAGE-CLASSIFIER" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-                    </div>
+              <div class="project-card reveal" data-tilt>
+                <div class="project-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1621155346337-1d19476ba7d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AWS Computer Vision" loading="lazy" />
+                  <div class="project-img-overlay">
+                    <a href="https://github.com/tbeetech/AWS-POWERED-AI-IMAGE-CLASSIFIER" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
-                <div class="project-details">
-                  <h3>AWS Computer Vision Classifier</h3>
-                  <p>Cloud-based image classification system built on AWS infrastructure, leveraging deep learning for real-time object detection with high precision. Includes scalable deployment architecture.</p>
+                <div class="project-body">
+                  <h3 class="project-title">AWS Computer Vision Classifier</h3>
+                  <p class="project-desc">Cloud-based image classification on AWS using deep learning for real-time object detection.</p>
                   <div class="project-tech">
-                    <span>AWS</span>
-                    <span>Python</span>
-                    <span>TensorFlow</span>
-                    <span>OpenCV</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="project-card fade-in">
-                <div class="project-image">
-                  <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stock Market Prediction">
-                  <div class="project-overlay">
-                    <div class="project-links">
-                      <a href="https://github.com/tbeetech/LSTM-Stock-price-predictor" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-details">
-                  <h3>Stock Market Prediction</h3>
-                  <p>Advanced financial forecasting system using LSTM neural networks to predict stock market trends. Features comprehensive data analysis, visualization tools, and predictive modeling capabilities.</p>
-                  <div class="project-tech">
-                    <span>Python</span>
-                    <span>LSTM</span>
-                    <span>Pandas</span>
-                    <span>Matplotlib</span>
+                    <span>AWS</span><span>Python</span><span>TensorFlow</span><span>OpenCV</span>
                   </div>
                 </div>
               </div>
 
-              <div class="project-card fade-in">
-                <div class="project-image">
-                  <img src="https://images.unsplash.com/photo-1557179045-153e7e11d173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Self-driving AI Model">
-                  <div class="project-overlay">
-                    <div class="project-links">
-                      <a href="https://github.com/tbeetech/autonomous-vehicle-vision" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-                    </div>
+              <div class="project-card reveal" data-tilt>
+                <div class="project-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stock Market Prediction" loading="lazy" />
+                  <div class="project-img-overlay">
+                    <a href="https://github.com/tbeetech/LSTM-Stock-price-predictor" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
-                <div class="project-details">
-                  <h3>Autonomous Vehicle Vision</h3>
-                  <p>Computer vision system for autonomous vehicles that identifies traffic signs, detects obstacles, and analyzes road conditions in real-time using deep learning algorithms and state recognition.</p>
+                <div class="project-body">
+                  <h3 class="project-title">Stock Market Prediction</h3>
+                  <p class="project-desc">LSTM neural network forecasting system for stock market trends with data visualization.</p>
                   <div class="project-tech">
-                    <span>Python</span>
-                    <span>TensorFlow</span>
-                    <span>Computer Vision</span>
-                    <span>Neural Networks</span>
+                    <span>Python</span><span>LSTM</span><span>Pandas</span><span>Matplotlib</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card reveal" data-tilt>
+                <div class="project-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1557179045-153e7e11d173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Autonomous Vehicle" loading="lazy" />
+                  <div class="project-img-overlay">
+                    <a href="https://github.com/tbeetech/autonomous-vehicle-vision" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+                <div class="project-body">
+                  <h3 class="project-title">Autonomous Vehicle Vision</h3>
+                  <p class="project-desc">CV system for autonomous vehicles detecting traffic signs, obstacles, and road conditions in real-time.</p>
+                  <div class="project-tech">
+                    <span>Python</span><span>TensorFlow</span><span>Computer Vision</span><span>Neural Networks</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <!-- Customized Solutions -->
+
+          <!-- Custom Solutions -->
           <div class="project-category" id="general">
-            <div class="custom-solutions-grid">
-              <!-- Automation Solutions -->
-              <div class="solution-card fade-in">
-                <div class="solution-icon">
-                  <i class="fas fa-robot"></i>
-                </div>
+            <div class="solutions-grid">
+              <div class="solution-card reveal">
+                <div class="solution-icon-wrap"><i class="fas fa-robot"></i></div>
                 <h3>Business Automation</h3>
-                <p>Transform your business operations with intelligent automation solutions:</p>
-                <div class="solutions-features">
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Workflow Automation</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Process Optimization</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>RPA Solutions</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Task Scheduling</span>
-                  </div>
-                </div>
+                <p>Transform operations with intelligent automation solutions.</p>
+                <ul class="solution-list">
+                  <li><i class="fas fa-check"></i> Workflow Automation</li>
+                  <li><i class="fas fa-check"></i> Process Optimization</li>
+                  <li><i class="fas fa-check"></i> RPA Solutions</li>
+                  <li><i class="fas fa-check"></i> Task Scheduling</li>
+                </ul>
               </div>
-              
-              <!-- Analytics Solutions -->
-              <div class="solution-card fade-in">
-                <div class="solution-icon">
-                  <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Analytics & Insights</h3>
-                <p>Make data-driven decisions with powerful analytics tools:</p>
-                <div class="solutions-features">
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Business Intelligence</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Real-time Analytics</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Custom Dashboards</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Predictive Analysis</span>
-                  </div>
-                </div>
+              <div class="solution-card reveal">
+                <div class="solution-icon-wrap"><i class="fas fa-chart-line"></i></div>
+                <h3>Analytics &amp; Insights</h3>
+                <p>Make data-driven decisions with powerful analytics tools.</p>
+                <ul class="solution-list">
+                  <li><i class="fas fa-check"></i> Business Intelligence</li>
+                  <li><i class="fas fa-check"></i> Real-time Analytics</li>
+                  <li><i class="fas fa-check"></i> Custom Dashboards</li>
+                  <li><i class="fas fa-check"></i> Predictive Analysis</li>
+                </ul>
               </div>
-              
-              <!-- Custom Development -->
-              <div class="solution-card fade-in">
-                <div class="solution-icon">
-                  <i class="fas fa-code"></i>
-                </div>
+              <div class="solution-card reveal">
+                <div class="solution-icon-wrap"><i class="fas fa-code"></i></div>
                 <h3>Custom Development</h3>
-                <p>Tailored solutions for your unique business needs:</p>
-                <div class="solutions-features">
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Web Applications</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Mobile Apps</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>API Integration</span>
-                  </div>
-                  <div class="solution-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Cloud Solutions</span>
-                  </div>
-                </div>
+                <p>Tailored solutions for your unique business needs.</p>
+                <ul class="solution-list">
+                  <li><i class="fas fa-check"></i> Web Applications</li>
+                  <li><i class="fas fa-check"></i> Mobile Apps</li>
+                  <li><i class="fas fa-check"></i> API Integration</li>
+                  <li><i class="fas fa-check"></i> Cloud Solutions</li>
+                </ul>
               </div>
             </div>
-            
-            <div class="custom-solutions-footer">
-              <p>Let's transform your ideas into reality with cutting-edge technology and professional expertise.</p>
-              
-              <div class="contact-button-wrapper">
-                <a href="#contactDetails" class="brand-button">Get in Touch <i class="fas fa-arrow-right"></i></a>
-                <a href="https://wa.link/w3e3ep" class="brand-button outline"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
+            <div class="solutions-footer">
+              <p>Let's transform your ideas into reality with cutting-edge technology.</p>
+              <div class="solutions-footer-btns">
+                <a href="#contact" class="btn btn--primary magnetic-btn"><span>Get in Touch</span> <i class="fas fa-arrow-right"></i></a>
+                <a href="https://wa.link/w3e3ep" target="_blank" class="btn btn--ghost magnetic-btn"><i class="fab fa-whatsapp"></i> <span>WhatsApp</span></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="agency-work-cta" style="text-align:center;margin-top:2.5rem;">
-          <p style="margin-bottom:1rem;font-size:1rem;opacity:0.85;">Want to see more? Explore projects built by my IT agency.</p>
-          <a href="https://www.tobseytech.biz/case-studies" target="_blank" class="brand-button outline">
-            <i class="fas fa-building"></i> TobseyTech: View More Agency Works
+
+        <div class="projects-more-cta">
+          <p>Want to see more? Explore agency case studies.</p>
+          <a href="https://www.tobseytech.biz/case-studies" target="_blank" class="btn btn--ghost magnetic-btn">
+            <i class="fas fa-building"></i> View Agency Works
           </a>
         </div>
       </div>
     </section>
-    <section class="work-with-me fade-in" id="work-with-me">
-      <div class="site-container">
-        <h2 class="universal-h2 universal-h2-bckg">Work With Me</h2>
-        <p class="wwm-subtitle">Three ways to engage: whether you're a recruiter, a founder, or an investor, there's a path for you.</p>
-        <div class="wwm-grid">
-          <div class="wwm-card">
-            <div class="wwm-icon"><i class="fas fa-user-tie"></i></div>
-            <h3>Hire Me</h3>
-            <p>Looking for a senior engineer or AI specialist to join your team or lead a critical initiative?</p>
-            <ul class="wwm-points">
+
+    <!-- ═══════════ WORK WITH ME ═══════════ -->
+    <section class="section engage" id="engage">
+      <div class="container">
+        <div class="section-label">// engage.options</div>
+        <h2 class="section-heading centered">Work With Me</h2>
+        <p class="section-subheading centered">Three ways to engage — whether you're a recruiter, a founder, or an investor.</p>
+        <div class="engage-grid">
+          <div class="engage-card reveal">
+            <div class="engage-icon"><i class="fas fa-user-tie"></i></div>
+            <h3 class="engage-title">Hire Me</h3>
+            <p class="engage-desc">Looking for a senior engineer or AI specialist to join your team or lead a critical initiative?</p>
+            <ul class="engage-points">
               <li><i class="fas fa-check"></i> Full-time &amp; Contract roles</li>
               <li><i class="fas fa-check"></i> Senior Engineering Leadership</li>
               <li><i class="fas fa-check"></i> CTO-as-a-Service</li>
               <li><i class="fas fa-check"></i> AI / ML Implementation</li>
             </ul>
-            <a href="#emailContact" class="wwm-cta">Send Hire Inquiry <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="engage-cta">Send Hire Inquiry <i class="fas fa-arrow-right"></i></a>
           </div>
-          <div class="wwm-card featured">
-            <div class="wwm-badge">Most Popular</div>
-            <div class="wwm-icon"><i class="fas fa-handshake"></i></div>
-            <h3>Build With Me</h3>
-            <p>Have a product idea or a business challenge? Bring it to TobseyTech and let's engineer the solution.</p>
-            <ul class="wwm-points">
+          <div class="engage-card engage-card--featured reveal">
+            <div class="engage-badge">Most Popular</div>
+            <div class="engage-icon"><i class="fas fa-handshake"></i></div>
+            <h3 class="engage-title">Build With Me</h3>
+            <p class="engage-desc">Have a product idea or a business challenge? Let's engineer the solution together.</p>
+            <ul class="engage-points">
               <li><i class="fas fa-check"></i> Full Product Development</li>
               <li><i class="fas fa-check"></i> AI Integration &amp; Automation</li>
               <li><i class="fas fa-check"></i> MVP to Production Scale</li>
               <li><i class="fas fa-check"></i> End-to-end Delivery</li>
             </ul>
-            <a href="https://www.tobseytech.biz" target="_blank" class="wwm-cta">Start a Project <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.tobseytech.biz" target="_blank" class="engage-cta">Start a Project <i class="fas fa-arrow-right"></i></a>
           </div>
-          <div class="wwm-card">
-            <div class="wwm-icon"><i class="fas fa-comments-dollar"></i></div>
-            <h3>Consult &amp; Partner</h3>
-            <p>Need expert guidance on tech strategy, AI adoption, or due diligence on a technology investment?</p>
-            <ul class="wwm-points">
+          <div class="engage-card reveal">
+            <div class="engage-icon"><i class="fas fa-comments-dollar"></i></div>
+            <h3 class="engage-title">Consult &amp; Partner</h3>
+            <p class="engage-desc">Need expert guidance on tech strategy, AI adoption, or technical due diligence?</p>
+            <ul class="engage-points">
               <li><i class="fas fa-check"></i> Technology Strategy</li>
               <li><i class="fas fa-check"></i> Technical Due Diligence</li>
               <li><i class="fas fa-check"></i> Partnership &amp; Deals</li>
               <li><i class="fas fa-check"></i> Advisory Engagement</li>
             </ul>
-            <a href="https://wa.link/w3e3ep" target="_blank" class="wwm-cta">Book a Call <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.link/w3e3ep" target="_blank" class="engage-cta">Book a Call <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Work With Me -->
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section fade-in" id="testimonials">
-      <div class="site-container">
-        <h2 class="universal-h2 universal-h2-bckg">What Clients Say</h2>
-        <p class="testimonials-subtitle">Real feedback from people who've worked with me and TobseyTech.</p>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p class="testimonial-text">"Tobi delivered a production-grade AI system that fundamentally transformed our operations. His depth in machine learning and his ability to communicate technical concepts to our non-technical leadership team is extraordinary. Highly recommend."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">AO</div>
-              <div class="testimonial-info">
-                <strong>Adebayo O.</strong>
-                <span>CEO, FinTech Startup · Lagos</span>
+    <!-- ═══════════ TESTIMONIALS ═══════════ -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-label">// client.feedback</div>
+        <h2 class="section-heading centered">What Clients Say</h2>
+        <p class="section-subheading centered">Real feedback from people who've worked with me and TobseyTech.</p>
+        <div class="testimonials-track-wrap">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card reveal">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">"Tobi delivered a production-grade AI system that fundamentally transformed our operations. His depth in machine learning and ability to communicate to non-technical leadership is extraordinary. Highly recommend."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">AO</div>
+                <div>
+                  <strong>Adebayo O.</strong>
+                  <span>CEO, FinTech Startup · Lagos</span>
+                </div>
               </div>
             </div>
-            <div class="testimonial-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p class="testimonial-text">"Working with TobseyTech was a game-changer. From concept to launch, Tobi and his team built our e-commerce platform in record time: beautiful, fast, and exactly what we envisioned. The technical quality was outstanding."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">FM</div>
-              <div class="testimonial-info">
-                <strong>Fatima M.</strong>
-                <span>Founder, FEB Luxury</span>
+            <div class="testimonial-card reveal">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">"Working with TobseyTech was a game-changer. From concept to launch, Tobi built our e-commerce platform in record time — beautiful, fast, and exactly what we envisioned."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">FM</div>
+                <div>
+                  <strong>Fatima M.</strong>
+                  <span>Founder, FEB Luxury</span>
+                </div>
               </div>
             </div>
-            <div class="testimonial-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p class="testimonial-text">"If you need someone who understands both the business and the engineering, Tobi is that person. He didn't just build what we asked for; he challenged our assumptions and made the final product ten times better than our original brief."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">KJ</div>
-              <div class="testimonial-info">
-                <strong>Kemi J.</strong>
-                <span>Director of Digital, Healthcare Group</span>
+            <div class="testimonial-card reveal">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">"If you need someone who understands both business and engineering, Tobi is that person. He challenged our assumptions and made the final product ten times better than our original brief."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">KJ</div>
+                <div>
+                  <strong>Kemi J.</strong>
+                  <span>Director of Digital, Healthcare Group</span>
+                </div>
               </div>
             </div>
-            <div class="testimonial-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonials-nav">
+            <button class="t-nav-btn" id="tPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+            <div class="t-dots" id="tDots"></div>
+            <button class="t-nav-btn" id="tNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-label">// get.in.touch</div>
+        <div class="contact-grid">
+          <div class="contact-info-col reveal">
+            <h2 class="section-heading">Let's Build<br /><span class="text-gradient">Something Remarkable</span></h2>
+            <p class="contact-desc">Whether you want to hire me, start a project, or just talk tech — my inbox is always open.</p>
+            <div class="contact-details">
+              <a href="tel:+2349110191422" class="contact-detail">
+                <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+                <div>
+                  <span class="contact-detail-label">Phone</span>
+                  <span class="contact-detail-value">+234 911 019 1422</span>
+                </div>
+              </a>
+              <a href="mailto:tobirammar@gmail.com" class="contact-detail">
+                <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <span class="contact-detail-label">Email</span>
+                  <span class="contact-detail-value">tobirammar@gmail.com</span>
+                </div>
+              </a>
+              <div class="contact-detail">
+                <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <span class="contact-detail-label">Location</span>
+                  <span class="contact-detail-value">Lagos, Nigeria</span>
+                </div>
+              </div>
+              <a href="https://www.tobseytech.biz" target="_blank" class="contact-detail">
+                <div class="contact-detail-icon"><i class="fas fa-globe"></i></div>
+                <div>
+                  <span class="contact-detail-label">Agency</span>
+                  <span class="contact-detail-value">tobseytech.biz</span>
+                </div>
+              </a>
+            </div>
+            <div class="contact-social">
+              <a href="https://wa.link/w3e3ep" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://www.linkedin.com/in/tobi-oyebade-b65b001a6" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com/tbeetech" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.twitter.com/tbeetech" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/tbeetech_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="contact-form-col reveal">
+            <form class="contact-form" id="emailForm" novalidate>
+              <div class="form-field">
+                <input type="email" id="email" name="email" placeholder=" " required />
+                <label for="email">Your Email</label>
+                <div class="field-line"></div>
+              </div>
+              <div class="form-field">
+                <input type="text" id="subject" name="subject" placeholder=" " required />
+                <label for="subject">Subject</label>
+                <div class="field-line"></div>
+              </div>
+              <div class="form-field">
+                <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                <label for="message">Message</label>
+                <div class="field-line"></div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full magnetic-btn" id="submitBtn">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer" id="contactDetails">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <div class="footer-logo">TBEETECH</div>
+              <p class="footer-bio">Founder &amp; Chief Technologist of TobseyTech Agency. Building world-class digital products and AI-powered solutions from Lagos, Nigeria.</p>
+              <a href="https://www.tobseytech.biz" target="_blank" class="footer-agency-link">Visit TobseyTech Agency <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-title">Quick Links</h4>
+              <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#agency">Agency</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#engage">Work With Me</a></li>
+                <li><a href="https://www.tobseytech.biz" target="_blank">TobseyTech.biz</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-title">Contact</h4>
+              <ul class="footer-contact">
+                <li><i class="fas fa-phone"></i><a href="tel:+2349110191422">+234 911 019 1422</a></li>
+                <li><i class="fas fa-envelope"></i><a href="mailto:tobirammar@gmail.com">tobirammar@gmail.com</a></li>
+                <li><i class="fas fa-map-marker-alt"></i><span>Lagos, Nigeria</span></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-title">Connect</h4>
+              <div class="footer-social">
+                <a href="https://wa.link/w3e3ep" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/tobi-oyebade-b65b001a6" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/tbeetech" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.twitter.com/tbeetech" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/tbeetech_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              </div>
+              <div class="footer-avail">
+                <span class="avail-dot"></span> Available for new projects
+              </div>
+              <a href="mailto:tobirammar@gmail.com?subject=Hire%20Inquiry" class="btn btn--primary btn--sm magnetic-btn">
+                Let's Work Together <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- End Testimonials -->
-
-    <!-- Blog Section -->
-    <section class="blog-section fade-in" id="blog">
-      <div class="site-container">
-        <h2 class="universal-h2 universal-h2-bckg">Blog</h2>
-        <div class="blog-posts">
-          <!-- Blog posts go here -->
-        </div>
-      </div>
-    </section>
-    <!-- End Blog Section -->
-
-    <!-- Social -->
-    <section class="fh5co-social fade-in">
-      <div class="site-container">
-        <div class="social">
-          <h5 class="doFont">Let's Connect</h5>
-          <div class="social-icons">
-            <a href="https://wa.link/w3e3ep" class="social-link" aria-label="WhatsApp">
-              <i class="fab fa-whatsapp fa-2x"></i>
-            </a>
-            <a href="https://www.instagram.com/tbeetech_" class="social-link" aria-label="Instagram">
-              <i class="fab fa-instagram fa-2x"></i>
-            </a>
-            <a href="https://www.twitter.com/tbeetech" class="social-link" aria-label="Twitter">
-              <i class="fab fa-twitter fa-2x"></i>
-            </a>
-            <a href="https://github.com/tbeetech" class="social-link" aria-label="GitHub">
-              <i class="fab fa-github fa-2x"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/tobi-oyebade-b65b001a6" class="social-link" aria-label="LinkedIn">
-              <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Social -->
-
-    <!-- Email Contact Section -->
-    <section class="email-contact-section fade-in" id="emailContact">
-      <div class="site-container">
-        <div class="contact-layout" style="display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap;">
-          <div class="contact-pfp" style="flex-shrink:0;text-align:center;">
-            <img src="./images/oluwatobiloba-profile.jpeg" alt="Oluwatobiloba Oyebade" style="width:160px;height:160px;border-radius:50%;object-fit:cover;box-shadow:0 4px 24px rgba(0,0,0,0.18);" />
-            <p style="margin-top:0.75rem;font-weight:600;font-size:0.95rem;">Oluwatobiloba Oyebade</p>
-            <p style="font-size:0.85rem;opacity:0.7;">Founder &amp; CEO, TobseyTech</p>
-          </div>
-          <div style="flex:1;min-width:260px;">
-        <h2 class="universal-h2">Get in Touch</h2>
-        <form class="email-form" id="emailForm">
-          <div class="form-group">
-            <input type="email" id="email" name="email" placeholder=" " required>
-            <label for="email">Your Email</label>
-          </div>
-          <div class="form-group">
-            <input type="text" id="subject" name="subject" placeholder=" " required>
-            <label for="subject">Subject</label>
-          </div>
-          <div class="form-group">
-            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
-            <label for="message">Message</label>
-          </div>
-          <button type="submit" class="submit-btn">
-            <i class="fas fa-paper-plane"></i> Send Message
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="copyright">
+            &copy; <span id="copyright-year"></span>
+            <a href="https://tbeetech.github.io">TbeeTech</a> &bull;
+            Oluwatobiloba Oyebade &bull; Founder of
+            <a href="https://www.tobseytech.biz" target="_blank">TobseyTech</a>
+          </p>
+          <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
           </button>
-        </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="site-footer fade-in" id="contactDetails">
-      <div class="site-container">
-        <div class="footer-grid">
-          <!-- About Column -->
-          <div class="footer-column">
-            <img src="images/tech-logo.jpg" alt="TbeeTech Logo" class="footer-logo-img">
-            <h3 class="footer-title">Oluwatobiloba Oyebade</h3>
-            <p class="footer-description">
-              Founder &amp; Chief Technologist of TobseyTech Agency. Building world-class digital products and AI-powered solutions from Lagos, Nigeria.
-            </p>
-            <a href="https://www.tobseytech.biz" target="_blank" class="footer-agency-link">
-              <i class="fas fa-building"></i> Visit TobseyTech Agency &rarr;
-            </a>
-          </div>
-          
-          <!-- Quick Links -->
-          <div class="footer-column">
-            <h3 class="footer-title">Quick Links</h3>
-            <ul class="footer-links">
-              <li><a href="#goBackHome"><i class="fas fa-chevron-right"></i>Home</a></li>
-              <li><a href="#aboutDetails"><i class="fas fa-chevron-right"></i>About</a></li>
-              <li><a href="#agency-spotlight"><i class="fas fa-chevron-right"></i>Agency</a></li>
-              <li><a href="#project-showcase"><i class="fas fa-chevron-right"></i>Projects</a></li>
-              <li><a href="#work-with-me"><i class="fas fa-chevron-right"></i>Work With Me</a></li>
-              <li><a href="https://www.tobseytech.biz" target="_blank"><i class="fas fa-chevron-right"></i>TobseyTech.biz</a></li>
-            </ul>
-          </div>
-          
-          <!-- Contact Info -->
-          <div class="footer-column">
-            <h3 class="footer-title">Contact Info</h3>
-            <ul class="footer-contact-info">
-              <li>
-                <i class="fas fa-phone"></i>
-                <a href="tel:+2349110191422">+234 911 019 1422</a>
-              </li>
-              <li>
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:tobirammar@gmail.com">tobirammar@gmail.com</a>
-              </li>
-              <li>
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Lagos, Nigeria</span>
-              </li>
-              <li>
-                <i class="fas fa-globe"></i>
-                <a href="https://www.tobseytech.biz" target="_blank">tobseytech.biz</a>
-              </li>
-            </ul>
-          </div>
-          
-          <!-- Connect -->
-          <div class="footer-column">
-            <h3 class="footer-title">Connect With Me</h3>
-            <div class="footer-social-grid">
-              <a href="https://wa.link/w3e3ep" class="footer-social-link" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/tobi-oyebade-b65b001a6" class="footer-social-link" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="https://github.com/tbeetech" class="footer-social-link" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://www.twitter.com/tbeetech" class="footer-social-link" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://www.instagram.com/tbeetech_" class="footer-social-link" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-            <div class="footer-hire-cta">
-              <p class="footer-availability"><span class="availability-dot"></span> Available for new projects</p>
-              <a href="mailto:tobirammar@gmail.com?subject=Hire%20Inquiry" class="brand-button footer-cta-btn">Let's Work Together <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="footer-bottom">
-          <div class="footer-bottom-inner">
-            <p class="copyright">
-              &copy; <span id="copyright-year"></span> <a href="https://tbeetech.github.io">TbeeTech</a> &bull; Personal portfolio of Oluwatobiloba Oyebade &bull; Founder of <a href="https://www.tobseytech.biz" target="_blank">TobseyTech</a> &bull; All Rights Reserved
-            </p>
-            <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-              <i class="fas fa-arrow-up"></i>
-            </button>
-          </div>
         </div>
       </div>
     </footer>
-    <!-- Footer end -->
 
     <!-- Scripts -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/main.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var year = new Date().getFullYear();
-    var el = document.getElementById('copyright-year');
-    if (el) el.textContent = year;
-  });
-</script>
   </body>
 </html>
 
