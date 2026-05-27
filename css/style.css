@@ -43,6 +43,7 @@ body {
   line-height: 1.6;
   cursor: none;
 }
+html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 ul { list-style: none; }
@@ -198,11 +199,11 @@ button { border: none; background: none; cursor: none; font-family: inherit; }
 .btn--sm { font-size: 0.825rem; padding: 8px 20px; }
 .hero {
   min-height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem;
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; gap: 3rem;
   padding: calc(var(--promo-h) + var(--nav-h) + 2rem) 2rem 4rem;
   max-width: var(--container); margin: 0 auto; position: relative; z-index: 1;
 }
-.hero-content { max-width: 580px; }
+.hero-content { max-width: 680px; min-width: 0; }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);
@@ -214,8 +215,8 @@ button { border: none; background: none; cursor: none; font-family: inherit; }
 .hero-badge a:hover { text-decoration: underline; }
 .badge-pulse { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 2s ease infinite; flex-shrink: 0; }
 .hero-greeting { font-family: var(--font-mono); font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
-.hero-name { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; line-height: 1.05; margin-bottom: 1.25rem; }
-.hero-name-line { display: block; }
+.hero-name { font-family: var(--font-display); font-size: clamp(2.5rem, 5.4vw, 4.7rem); font-weight: 800; line-height: 1.05; margin-bottom: 1.25rem; }
+.hero-name-line { display: block; white-space: nowrap; }
 .hero-name-line--accent {
   background: linear-gradient(135deg, var(--cyan), var(--purple));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
@@ -236,7 +237,14 @@ button { border: none; background: none; cursor: none; font-family: inherit; }
 .hex-ring-2 { inset: -20px; border-color: rgba(167,139,250,0.12); animation-duration: 25s; animation-direction: reverse; }
 @keyframes spinSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 .hero-photo-frame { width: 240px; height: 240px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(0,229,255,0.35); box-shadow: 0 0 40px rgba(0,229,255,0.2), 0 0 80px rgba(167,139,250,0.1); position: relative; z-index: 2; }
-.hero-photo { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(0.93);
+  transform-origin: center center;
+}
 .hero-orbit { position: absolute; width: 300px; height: 300px; top: 50%; left: 50%; margin-left: -150px; margin-top: -150px; animation: spinSlow linear infinite; }
 .hero-orbit-1 { animation-duration: 10s; }
 .hero-orbit-2 { animation-duration: 14s; animation-direction: reverse; width: 340px; height: 340px; margin-left: -170px; margin-top: -170px; }
@@ -267,15 +275,18 @@ button { border: none; background: none; cursor: none; font-family: inherit; }
 .about-signature { font-family: var(--font-mono); font-size: 1.1rem; color: var(--text-muted); margin-top: 1.5rem; font-style: italic; }
 .agency { background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-surface) 50%, var(--bg-base) 100%); position: relative; overflow: hidden; }
 .agency-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
-.agency-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+.agency-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; justify-items: center; }
+.agency-brand-col,
+.agency-info-col { width: 100%; min-width: 0; }
+.agency-info-col { max-width: 760px; margin: 0 auto; text-align: center; }
 .agency-brand-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; text-align: center; backdrop-filter: blur(12px); box-shadow: inset 0 0 80px rgba(0,229,255,0.03); }
-.agency-brand-name { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: 0.12em; background: linear-gradient(135deg, var(--cyan), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
+.agency-brand-name { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: 0.12em; background: linear-gradient(135deg, var(--cyan), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; max-width: 100%; overflow-wrap: anywhere; }
 .agency-brand-sub { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
 .agency-brand-rule { width: 60px; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--purple)); margin: 1.5rem auto; border-radius: 2px; }
 .agency-brand-motto { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.75rem; }
 .agency-eyebrow { font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .agency-desc { color: var(--text-secondary); line-height: 1.8; font-size: 1rem; margin-bottom: 2rem; }
-.agency-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+.agency-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; max-width: 700px; margin: 0 auto; }
 .agency-pillar { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 0.5rem; font-size: 0.8rem; color: var(--text-secondary); text-align: center; transition: var(--transition); }
 .agency-pillar:hover { border-color: var(--border-glow); color: var(--text-primary); background: var(--cyan-dim); }
 .agency-pillar i { font-size: 1.1rem; color: var(--cyan); }
@@ -425,11 +436,48 @@ button { border: none; background: none; cursor: none; font-family: inherit; }
 }
 @media (max-width: 768px) {
   :root { --section-py: 80px; --nav-h: 64px; }
+  .promo-bar {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 0 2.5rem 0 0.75rem;
+    font-size: 0.68rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .container,
+  .nav-inner { padding: 0 1rem; }
+  .hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 2rem;
+    justify-items: center;
+  }
+  .hero-content { text-align: center; margin: 0 auto; }
+  .hero-badge,
+  .hero-roles,
+  .hero-vps,
+  .hero-actions { justify-content: center; }
+  .hero-vps { flex-wrap: wrap; }
+  .hero-vp-divider { display: none; }
+  .hero-visual { margin-top: 1rem; }
+  .agency-grid { gap: 2rem; }
+  .agency-brand-box { padding: 1.5rem 1rem; max-width: 100%; }
+  .agency-brand-name { font-size: clamp(1.45rem, 8vw, 2.1rem); letter-spacing: 0.06em; }
+  .agency-brand-sub { letter-spacing: 0.08em; }
+  .agency-info-col .section-heading { font-size: clamp(1.65rem, 7vw, 2.25rem); }
+  .agency-desc { font-size: 0.95rem; overflow-wrap: anywhere; }
+  .agency-pillars { max-width: 100%; }
   .nav-links { display: none; }
   .nav-burger { display: flex; }
   .hero-name { font-size: clamp(2.2rem, 8vw, 3.5rem); }
   .hero-photo-wrap { width: 260px; height: 260px; }
   .hero-photo-frame { width: 180px; height: 180px; }
+  .hero-photo {
+    object-fit: contain;
+    object-position: center 22%;
+    transform: scale(0.94);
+  }
   .hero-orbit-2 { width: 260px; height: 260px; margin-left: -130px; margin-top: -130px; }
   .hero-orbit-3 { width: 290px; height: 290px; margin-left: -145px; margin-top: -145px; }
   .stats-grid { grid-template-columns: 1fr 1fr 1fr; gap: 0; }
@@ -440,9 +488,24 @@ button { border: none; background: none; cursor: none; font-family: inherit; }
 }
 @media (max-width: 480px) {
   :root { --section-py: 60px; }
+  .promo-bar { font-size: 0.62rem; }
+  .hero-name { font-size: clamp(1.9rem, 9vw, 2.5rem); line-height: 1.1; }
+  .hero-photo-wrap { width: 220px; height: 220px; }
+  .hero-photo-frame { width: 150px; height: 150px; }
+  .hero-photo { transform: scale(0.9); object-position: center 20%; }
+  .hero-orbit,
+  .hero-orbit-2,
+  .hero-orbit-3 { width: 220px; height: 220px; margin-left: -110px; margin-top: -110px; }
+  .hero-hex-ring.hex-ring-2 { inset: -10px; }
+  .agency-brand-name { font-size: clamp(1.2rem, 8.2vw, 1.6rem); letter-spacing: 0.045em; }
+  .agency-brand-sub { font-size: 0.72rem; }
+  .agency-brand-motto { font-size: 0.88rem; }
+  .mobile-menu-links a { font-size: clamp(1.4rem, 8vw, 2rem); }
   .hero-actions { flex-direction: column; }
   .hero-vps { gap: 1rem; }
   .btn { padding: 11px 22px; }
+  .project-tabs { justify-content: stretch; }
+  .project-tab { flex: 1 1 100%; justify-content: center; }
   .stats-grid { grid-template-columns: 1fr; }
   .stat + .stat::before { display: none; }
 }

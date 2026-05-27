@@ -14,7 +14,7 @@
   window.addEventListener('load', () => {
     const loader = qs('#preloader');
     if (loader) {
-      setTimeout(() => loader.classList.add('done'), 1800);
+      setTimeout(() => loader.classList.add('done'), 1440);
     }
   });
 
@@ -46,8 +46,8 @@
   if (canvas) {
     const ctx = canvas.getContext('2d');
     let W, H, nodes = [];
-    const NODE_COUNT = 70;
-    const MAX_DIST = 160;
+    const NODE_COUNT = 56;
+    const MAX_DIST = 128;
     const COLORS = ['rgba(0,229,255,', 'rgba(167,139,250,', 'rgba(240,180,41,'];
 
     function resize() {
@@ -255,7 +255,6 @@
       }
     });
   }, { threshold: 0.15 });
-
   qsa('.reveal').forEach(el => observer.observe(el));
 
   const statsObserver = new IntersectionObserver((entries) => {
@@ -264,7 +263,6 @@
       qsa('.count').forEach(animateCounter);
     }
   }, { threshold: 0.4 });
-
   const statsSection = qs('.stats');
   if (statsSection) statsObserver.observe(statsSection);
 
@@ -296,7 +294,6 @@
     tPrev && tPrev.addEventListener('click', () => goTo(current - 1));
     tNext && tNext.addEventListener('click', () => goTo(current + 1));
 
-    // Auto-advance
     let autoPlay = setInterval(() => goTo(current + 1), 5000);
     track.addEventListener('mouseenter', () => clearInterval(autoPlay));
     track.addEventListener('mouseleave', () => { autoPlay = setInterval(() => goTo(current + 1), 5000); });
